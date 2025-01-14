@@ -160,12 +160,14 @@ var searchBox = actionSearch.add('edittext {properties: {name: "searchBox"}}');
 
     ///should probably be a function to avoid being doubled
     printResults();
-    function printResults() {
+    function printResults(base) {
       //add function param "base" set to 0 by default, then change the below to [base], [base + 1], etc. then, in the down button key listener function, if (selected == 2){printResults(currentindex+1)}. Would also need to change the onClicks to use a variable rather than current hardcoded 0,1,2
-      
-      result1.text = results[0] + " | " + resultSet[0];
-      result2.text = results[1] + " | " + resultSet[1];
-      result3.text = results[2] + " | " + resultSet[2];
+      if (base === undefined) {
+        base = 0;
+      }
+      result1.text = results[base + 0] + " | " + resultSet[base + 0];
+      result2.text = results[base + 1] + " | " + resultSet[base + 1];
+      result3.text = results[base + 2] + " | " + resultSet[base + 2];
     }
   
 
